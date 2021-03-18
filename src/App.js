@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom' // Switch mach die erste ricgitge path funktionieren zu lassen
 import './App.css';
+import About from './components/About';
+import Contact from './components/Contact';
+import Home from './components/Home';
+import Nv from './components/404'
+import Nav from './components/Nav';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        {/* <Route path="/about">
+          <About />
+        </Route> */}
+        <Route path="/about" component={About} /> {/* Route 2. syntax */}
+        {/* <Route path="/about" component={(props)=> <About props={...props}/>} /> */} {/* Route 2. syntax mit props*/}
+        <Route path="/contact">
+          <Contact />
+        </Route>
+        <Route>
+          <Nv />
+        </Route>
+      </Switch>
+
     </div>
   );
 }
