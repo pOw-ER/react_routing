@@ -5,6 +5,8 @@ import Contact from './components/Contact';
 import Home from './components/Home';
 import Nv from './components/404'
 import Nav from './components/Nav';
+import CarsList from './components/CarsList';
+import CarDetails from './components/CarDetails';
 
 function App() {
   return (
@@ -22,6 +24,14 @@ function App() {
         <Route path="/contact">
           <Contact />
         </Route>
+        <Route exact path="/cars">
+          <CarsList />
+        </Route>
+        {/* <Route path="/cars/details">
+          <CarDetails />
+        </Route> */}
+        {/* <Route path="/cars/:id" component={CarDetails} /> */}
+        <Route path="/cars/:id" render={(props) => <CarDetails {...props} />} />
         <Route>
           <Nv />
         </Route>
